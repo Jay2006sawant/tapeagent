@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tapeagent"
+version = "0.1.0"
+description = "Record and replay LLM agent runs for deterministic CI regression testing (VCR for agents)."
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Jay Sawant" }]
+keywords = ["llm", "agents", "testing", "vcr", "cassette", "regression"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Testing",
+]
+dependencies = [
+  "pydantic>=2.10,<3",
+  "pyyaml>=6.0,<7",
+  "rich>=13.7,<14",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.24,<1",
+]
+openai = ["openai>=1.0"]
+
