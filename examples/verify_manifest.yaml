@@ -1,0 +1,8 @@
+# Replayed by: tapeagent verify examples/verify_manifest.yaml
+scenarios:
+  - name: weather_query
+    cassette_dir: ../src/tapeagent/demo/cassettes
+    entrypoint: tapeagent.demo.simple_agent:run_weather_scenario
+  - name: policy_query
+    cassette_dir: ../src/tapeagent/demo/cassettes
+    entrypoint: tapeagent.demo.simple_agent:run_policy_scenario
