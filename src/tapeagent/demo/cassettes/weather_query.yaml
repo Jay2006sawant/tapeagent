@@ -1,0 +1,59 @@
+schema_version: 1
+runs:
+  weather_query:
+    name: weather_query
+    recorded_at: '2026-11-12T05:52:19.864530+00:00'
+    agent_id: default
+    interactions:
+    - kind: llm
+      name: mock-llm
+      request:
+        messages:
+        - role: user
+          content: What's the weather in Pune?
+        - role: assistant
+          content: ''
+          tool_calls:
+          - name: get_weather
+            arguments:
+              city: Pune
+        - role: tool
+          content: '{''city'': ''Pune'', ''temp_c'': 32, ''condition'': ''haze''}'
+          name: get_weather
+      response:
+        content: ''
+        tool_calls:
+        - name: get_weather
+          arguments:
+            city: Pune
+      request_hash: a6471ce892e43dd2
+    - kind: tool
+      name: get_weather
+      request:
+        city: Pune
+      response:
+        result:
+          city: Pune
+          temp_c: 32
+          condition: haze
+      request_hash: 7d25f87aa994f9f7
+    - kind: llm
+      name: mock-llm
+      request:
+        messages:
+        - role: user
+          content: What's the weather in Pune?
+        - role: assistant
+          content: ''
+          tool_calls:
+          - name: get_weather
+            arguments:
+              city: Pune
+        - role: tool
+          content: '{''city'': ''Pune'', ''temp_c'': 32, ''condition'': ''haze''}'
+          name: get_weather
+      response:
+        content: 'Here is your answer based on tool output: {''city'': ''Pune'', ''temp_c'':
+          32, ''condition'': ''haze''}'
+      request_hash: 62ffc7363bb70999
+    metadata: {}
