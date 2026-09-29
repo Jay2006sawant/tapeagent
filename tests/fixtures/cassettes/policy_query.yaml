@@ -1,0 +1,58 @@
+schema_version: 1
+runs:
+  policy_query:
+    name: policy_query
+    recorded_at: '2026-11-12T05:52:19.866867+00:00'
+    agent_id: default
+    interactions:
+    - kind: llm
+      name: mock-llm
+      request:
+        messages:
+        - role: user
+          content: What is the hostel curfew?
+        - role: assistant
+          content: ''
+          tool_calls:
+          - name: search_docs
+            arguments:
+              q: What is the hostel curfew?
+        - role: tool
+          content: '{''hits'': [''Policy excerpt for: What is the hostel curfew?'']}'
+          name: search_docs
+      response:
+        content: ''
+        tool_calls:
+        - name: search_docs
+          arguments:
+            q: What is the hostel curfew?
+      request_hash: 64dcf5a73119adef
+    - kind: tool
+      name: search_docs
+      request:
+        q: What is the hostel curfew?
+      response:
+        result:
+          hits:
+          - 'Policy excerpt for: What is the hostel curfew?'
+      request_hash: 126b0a70b2d77248
+    - kind: llm
+      name: mock-llm
+      request:
+        messages:
+        - role: user
+          content: What is the hostel curfew?
+        - role: assistant
+          content: ''
+          tool_calls:
+          - name: search_docs
+            arguments:
+              q: What is the hostel curfew?
+        - role: tool
+          content: '{''hits'': [''Policy excerpt for: What is the hostel curfew?'']}'
+          name: search_docs
+      response:
+        content: 'Here is your answer based on tool output: {''hits'': [''Policy excerpt
+          for: What is the hostel curfew?'']}'
+      request_hash: 454a96a2a1bd3e55
+    metadata: {}
