@@ -12,6 +12,7 @@ from rich.table import Table
 
 from tapeagent.cassette import load_cassette
 from tapeagent.diff import compare_runs
+from tapeagent.verify import verify_manifest
 
 console = Console()
 
@@ -102,7 +103,12 @@ def build_parser() -> argparse.ArgumentParser:
     diff.add_argument("--json", action="store_true")
     diff.set_defaults(func=cmd_diff)
 
+    verify = sub.add_parser("verify", help="Replay all scenarios in a manifest (CI)")
+    verify.add_argument("manifest", type=str, help="Path to verify_manifest.yaml")
+    verify.set_defaults(func=cmd_verify)
+
     return parser
+
 
 def main(argv: list[str] | None = None) -> None:
     parser = build_parser()
