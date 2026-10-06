@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "tapeagent"
 version = "0.1.0"
 description = "Record and replay LLM agent runs for deterministic CI regression testing (VCR for agents)."
+readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [{ name = "Jay Sawant" }]
@@ -32,3 +33,24 @@ dev = [
 ]
 openai = ["openai>=1.0"]
 
+[project.scripts]
+tapeagent = "tapeagent.cli:main"
+
+[project.entry-points.pytest11]
+tapeagent = "tapeagent.pytest_plugin"
+
+[project.urls]
+Homepage = "https://github.com/Jay2006sawant/tapeagent"
+Repository = "https://github.com/Jay2006sawant/tapeagent"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tapeagent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
