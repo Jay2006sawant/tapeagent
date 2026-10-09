@@ -30,7 +30,7 @@ CI runs the same thing without your laptop — link the Actions tab in the READM
 1. [ ] Create **public** repo `tapeagent` on GitHub (no secrets in history).
 2. [ ] Initial commit; push `master` or `main`.
 3. [ ] Confirm **Actions** pass (Actions tab all green).
-4. [ ] Replace `https://github.com/YOURUSER/tapeagent` in README (top + clone).
+4. [ ] Replace placeholder links in README if you fork the repository.
 5. [ ] Record **Loom**: 90s problem → 60s `make verify` → 30s cassette YAML snippet.
 6. [ ] Add repo + video link to resume, LinkedIn, placement form.
 7. [ ] (Optional) Publish to PyPI — see below.
